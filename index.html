@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABO William Junior – Portfolio Développeur Fullstack & Applications</title>
+<meta name="description" content="Portfolio d'ABO William Junior, étudiant-ingénieur à l'EFREI, développeur web Full Stack &amp; IA : Smart Campus, Data City, TaskFlow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8fa; --panel:#ffffff; --text:#1c2430; --muted:#5b6675; --line:#e2e6ec;
+  --accent:#1f6fb8; --accent-soft:#e6f0fa; --chip:#eef1f5;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141b; --panel:#171e28; --text:#e8ecf2; --muted:#9aa6b6; --line:#26303d;
+    --accent:#5aa5e8; --accent-soft:#1a2a3d; --chip:#202a37;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.65;font-size:17px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.layout{max-width:1120px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+
+/* Colonne gauche */
+aside{position:sticky;top:40px}
+aside h1{font-size:30px;line-height:1.15;margin:0 0 20px;color:var(--accent);font-weight:700;letter-spacing:-.01em}
+.photo{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:6px;display:block;background:var(--chip);border:1px solid var(--line)}
+.tagline{color:var(--muted);font-size:15px;margin:14px 0 22px}
+.side-links{display:flex;flex-direction:column;gap:10px;font-size:15px;margin:0 0 24px;padding:0;list-style:none}
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:10px 18px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#fff}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.nav{display:flex;flex-wrap:wrap;gap:8px 18px;padding-top:18px;border-top:1px solid var(--line);font-size:15px}
+.nav a{color:var(--muted)}
+.nav a:hover{color:var(--accent)}
+
+/* Colonne droite */
+main h2{font-size:24px;margin:56px 0 16px;letter-spacing:-.01em;scroll-margin-top:24px}
+main h2:first-of-type{margin-top:0}
+.hero h2{font-size:38px;line-height:1.15;margin:0 0 20px;font-weight:700;letter-spacing:-.02em}
+.lead{font-size:19px;color:var(--text);max-width:62ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+ul.plain{padding-left:22px;margin:0}
+ul.plain li{margin:8px 0}
+
+.projects{display:grid;gap:18px}
+.project{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:24px 26px;border-left:4px solid var(--accent)}
+.project h3{margin:0 0 6px;font-size:21px}
+.project p{margin:0 0 14px;color:var(--muted);font-size:16px}
+.project ul{margin:0 0 16px;padding-left:20px;font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.chips li{background:var(--chip);border-radius:4px;padding:3px 10px;font-size:14px;color:var(--text)}
+.links{display:flex;gap:18px;font-size:15px;font-weight:600}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.skills div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.skills h3{margin:0 0 10px;font-size:16px;color:var(--accent)}
+
+.timeline{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.timeline li{position:relative;margin:0 0 20px;padding-left:18px}
+.timeline li::before{content:"";position:absolute;left:-26px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.timeline ul{margin-top:8px;font-size:16px}
+.timeline small{color:var(--muted);display:block;font-size:14px}
+
+footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;gap:36px;padding-top:32px}
+  aside{position:static;display:grid;grid-template-columns:140px 1fr;gap:6px 20px;align-items:start}
+  aside h1{grid-column:1/-1;font-size:26px;margin-bottom:6px}
+  .photo{grid-row:2/4}
+  .tagline{margin:0}
+  .side-links,.nav{grid-column:1/-1}
+  .hero h2{font-size:30px}
+}
+@media (max-width:480px){
+  aside{grid-template-columns:1fr}
+  .photo{max-width:220px;grid-row:auto}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <h1>ABO William Junior</h1>
+    <img class="photo" src="assets/willi.jpeg" alt="Portrait d'ABO William Junior" width="300" height="300">
+    <p class="tagline">Portfolio Développeur Fullstack &amp; Applications</p>
+    <ul class="side-links">
+      <li><a href="https://github.com/WILLIAM04052005">GitHub : WILLIAM04052005</a></li>
+      <li><a href="https://www.linkedin.com/in/abo-william-junior-b1a202326/">LinkedIn</a></li>
+      <li><a href="mailto:william-junior.abo@efrei.net">william-junior.abo@efrei.net</a></li>
+    </ul>
+    <nav class="nav" aria-label="Sections">
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#experiences">Expériences</a>
+      <a href="#competences">Compétences</a>
+      <a href="#parcours">Formation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <h2>ABO William Junior – Étudiant-ingénieur Développeur Web Full Stack &amp; IA</h2>
+      <p class="lead">Bienvenue sur mon portfolio. Étudiant en 3<sup>e</sup> année à l'EFREI Paris, spécialisé en développement web et applications, et je recherche une alternance en tant que développeur Full Stack junior.</p>
+      <div class="actions">
+        <a class="btn" href="#projets">Voir mes projets</a>
+        <a class="btn ghost" href="https://github.com/WILLIAM04052005">Mon GitHub</a>
+      </div>
+    </section>
+
+    <h2 id="apropos">À propos de moi</h2>
+    <ul class="plain">
+      <li>Étudiant-ingénieur à l'<strong>EFREI Paris</strong>, spécialisé Développeur web Full Stack &amp; IA (RNCP 39608)</li>
+      <li>Stagiaire assistant ingénieur chez <strong>DK-Wave Technology France</strong> (été 2026) : React, MySQL, CI/CD</li>
+      <li>Demi-finaliste du <strong>Digital Health Hackathon</strong> (2023)</li>
+      <li>Travail en équipe en méthode Agile avec Git, GitHub, Jira et Slack</li>
+      <li>Trilingue : français, anglais (TOEIC B2), espagnol (A2)</li>
+    </ul>
+
+    <h2 id="projets">Mes projets</h2>
+    <div class="projects">
+
+      <article class="project">
+        <h3>Smart Campus</h3>
+        <p>Plateforme web qui permet aux étudiants, enseignants et administrateurs de gérer la vie académique depuis une seule application.</p>
+        <ul>
+          <li>Trois profils d'utilisateurs avec des besoins différents, réunis dans une même application.</li>
+          <li>Projet personnel en cours (2026).</li>
+        </ul>
+        <ul class="chips" aria-label="Technologies">
+          <li>Node.js / Express</li><li>PostgreSQL (neon.tech)</li><li>HTML5 &amp; CSS</li><li>Prisma</li><li>GitHub</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/WILLIAM04052005/smart-campus">Code source - GitHub</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Data City - Movecity</h3>
+        <p>Plateforme d'analyse et de visualisation de données urbaines dans une ville choisie. Une ville qui fluidifie les mobilités quotidiennes.</p>
+        <ul>
+          <li>Concevoir une plateforme citoyenne
+interactive destinée aux habitants d'une ville imaginaire (ou inspirée d'un territoire réel).</li>
+          <li>Ce projet visant plusieures domaines; Devops, cybersécurité, marketing digital, etant responsable du devops.</li>
+          <li>Je contribue au cadrage du périmètre technique à partir des personas visés.</li>
+          <li>Pose l'architecture technique, les choix de données et les premiers wireframes et Finalise le prototype squelette et la documentation d'architecture.</li>
+          <li>En cours de réalisation jusqu'en Decembre 2026 pour la soutenance.</li>
+        </ul>
+        <ul class="chips" aria-label="Technologies">
+          <li>HTML5 &amp; CSS</li><li>Vanilla JavaScript</li><li>Node.js / Express</li><li>PostgreSQL</li><li>GitHub</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/WILLIAM04052005/movecity-app">Code source - GitHub</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>TaskFlow - Group project</h3>
+        <p>Application de gestion de tâches et de suivi de projet, réalisée en groupe (B3DEV – Groupe 1).</p>
+        <ul>
+          <li>Travail collaboratif avec Git, GitHub et une organisation Agile.</li>
+          <li>Projet de 2026(Terminé).</li>
+        </ul>
+        <ul class="chips" aria-label="Technologies">
+          <li>Git / GitHub</li><li>HTML5 &amp; CSS</li><li>JavaScript</li><li>MySQL, PHP</li><li>VS Code</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/Patebolognaise/B3DEV_Groupe1_TaskFlow">Code source - GitHub</a>
+        </div>
+      </article>
+
+    </div>
+
+    <h2 id="experiences">Expériences</h2>
+    <ol class="timeline">
+      <li><strong>Stagiaire assistant ingénieur – DK-Wave Technology France</strong><small>Juin – août 2026</small>
+        <ul class="plain">
+          <li>Composant React de visualisation des plannings étudiants pour la solution smart attendance : temps de consultation réduit de 40 %, en remplacement d'un processus manuel sous Excel.</li>
+          <li>Jobs d'analyse statique de code dans la chaîne CI/CD, pour détecter les bugs avant la production.</li>
+          <li>Optimisation d'une base MySQL (requêtes, migrations, modélisation) : temps de réponse réduit de 50 %.</li>
+          <li>Méthode Agile avec Jira et Slack.</li>
+        </ul>
+      </li>
+      <li><strong>Stagiaire assistant ingénieur technicien – Burotop Iris</strong><small>Janvier – février 2025</small>
+        <ul class="plain">
+          <li>Maintenance et déploiement d'infrastructures IT chez plusieurs clients : réseau (Cisco, TP-Link, VLAN), vidéosurveillance et capteurs.</li>
+          <li>6 interventions sur site et à distance sous Windows Server et Linux (Ubuntu).</li>
+        </ul>
+      </li>
+      <li><strong>Digital Health Hackathon – demi-finaliste</strong><small>Juin – septembre 2023</small>
+        <ul class="plain">
+          <li>Solution numérique pour la gestion des données médicales et la communication patients / professionnels de santé : spécifications, architecture et maquettes.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2 id="competences">Compétences</h2>
+    <div class="skills">
+      <div><h3>Front-end</h3>HTML5, CSS, React</div>
+      <div><h3>Back-end</h3>Node.js / Express, PHP, Python</div>
+      <div><h3>Bases de données</h3>PostgreSQL (neon.tech), MySQL</div>
+      <div><h3>Data &amp; IA</h3>Pandas, Matplotlib, Scikit-Learn, Jupyter, Anaconda</div>
+      <div><h3>Outils</h3>Git, GitHub, VS Code, Jira, looping, XAMPP</div>
+      <div><h3>Gestion de projet</h3>Méthode Agile, planification, animation de groupe de travail</div>
+    </div>
+
+    <h2 id="parcours">Formation</h2>
+    <ol class="timeline">
+      <li><strong>Ingénieur Informatique – EFREI Paris</strong><small>2026 – en cours · Développeur web Full Stack &amp; IA</small></li>
+      <li><strong>Ingénieur Généraliste – ICAM Nantes</strong><small>2023 – 2025 · Informatique et systèmes embarqués. Projets : drone quadricoptère autopilote, bateau autopilote</small></li>
+      <li><strong>Baccalauréat scientifique anglophone et technique (A Level)</strong><small>2022 – 2023 · Douala, Cameroun</small></li>
+    </ol>
+
+    <h2 id="contact">Me contacter</h2>
+    <p>Un stage alterné, une alternance ou un projet à construire ensemble ? Écrivez-moi.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:william-junior.abo@efrei.net">Envoyer un e-mail</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/abo-william-junior-b1a202326/?isSelfProfile=true">LinkedIn</a>
+    </div>
+  </main>
+</div>
+
+<footer>
+  © 2026 ABO William Junior · Portfolio hébergé sur GitHub Pages
+</footer>
+</body>
+</html>

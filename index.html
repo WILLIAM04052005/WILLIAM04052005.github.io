@@ -166,6 +166,25 @@ footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--li
       </article>
 
       <article class="project">
+      <h3>Snake Arena</h3>
+      <p>Jeu de Snake multijoueur en temps réel, jouable directement dans le navigateur. Un joueur crée un salon, partage son code ou son lien, et jusqu'à 8 joueurs s'affrontent sur la même carte : il faut manger pour grandir, sans percuter les murs, son propre corps ou les autres serpents.</p>
+  <ul>
+    <li>Multijoueur en temps réel via WebSocket, avec des salons privés rejoignables par code ou par lien.</li>
+    <li>Serveur qui fait autorité : c'est lui qui calcule chaque tour de jeu (10 fois par seconde), ce qui empêche la triche.</li>
+    <li>Règles du jeu écrites en TypeScript pur et partagées entre le client et le serveur dans un monorepo.</li>
+    <li>Toutes les données envoyées par les joueurs sont validées, avec une limite de messages par seconde contre le spam.</li>
+    <li>Classement en direct, respawn après une défaite, contrôles au clavier (flèches, ZQSD) et au doigt sur mobile.</li>
+    <li>Projet personnel (2026).</li>
+  </ul>
+  <ul class="chips" aria-label="Technologies">
+    <li>TypeScript</li><li>React</li><li>Vite</li><li>Node.js</li><li>Fastify</li><li>Socket.io</li><li>Canvas HTML5</li><li>Vitest</li><li>GitHub Actions</li>
+  </ul>
+  <div class="links">
+    <a href="https://github.com/WILLIAM04052005/snake-arena">Code source - GitHub</a>
+  </div>
+</article>
+
+      <article class="project">
         <h3>Data City - Movecity</h3>
         <p>Plateforme d'analyse et de visualisation de données urbaines dans une ville choisie. Une ville qui fluidifie les mobilités quotidiennes.</p>
         <ul>

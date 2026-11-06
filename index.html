@@ -4,85 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ABO William Junior – Portfolio Développeur Fullstack & Applications</title>
-<meta name="description" content="Portfolio d'ABO William Junior, étudiant-ingénieur à l'EFREI, développeur web Full Stack &amp; IA : Smart Campus, Data City, TaskFlow.">
+<meta name="description" content="Portfolio d'ABO William Junior, étudiant-ingénieur à l'EFREI, développeur web Full Stack &amp; IA : Smart Campus, Snake Arena, Data City, TaskFlow, drone autonome.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f8fa; --panel:#ffffff; --text:#1c2430; --muted:#5b6675; --line:#e2e6ec;
-  --accent:#1f6fb8; --accent-soft:#e6f0fa; --chip:#eef1f5;
+  --bg:#f5f7fa; --panel:#ffffff; --text:#1c2430; --muted:#5b6675; --line:#e2e6ec;
+  --accent:#1f6fb8; --accent-ink:#ffffff; --accent-soft:#e6f0fa; --chip:#eef1f5;
+  --ok-bg:#e3f4ea; --ok-fg:#17663a; --wip-bg:#fdf1dc; --wip-fg:#8a5a00;
+  --shadow:0 6px 22px rgba(28,36,48,.09);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#0f141b; --panel:#171e28; --text:#e8ecf2; --muted:#9aa6b6; --line:#26303d;
-    --accent:#5aa5e8; --accent-soft:#1a2a3d; --chip:#202a37;
+    --accent:#5aa5e8; --accent-ink:#0b1620; --accent-soft:#1a2a3d; --chip:#202a37;
+    --ok-bg:#14301f; --ok-fg:#6fd29a; --wip-bg:#3a2d12; --wip-fg:#f0c36a;
+    --shadow:0 6px 22px rgba(0,0,0,.35);
   }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.65;font-size:17px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 
 .layout{max-width:1120px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
 
-/* Colonne gauche */
-aside{position:sticky;top:40px}
+/* ---------- Colonne gauche ---------- */
+aside{position:sticky;top:32px}
 aside h1{font-size:30px;line-height:1.15;margin:0 0 20px;color:var(--accent);font-weight:700;letter-spacing:-.01em}
-.photo{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:6px;display:block;background:var(--chip);border:1px solid var(--line)}
-.tagline{color:var(--muted);font-size:15px;margin:14px 0 22px}
-.side-links{display:flex;flex-direction:column;gap:10px;font-size:15px;margin:0 0 24px;padding:0;list-style:none}
-.btn{display:inline-block;font-weight:600;font-size:15px;padding:10px 18px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#fff}
-.btn:hover{text-decoration:none;filter:brightness(1.08)}
-.btn.ghost{background:transparent;color:var(--accent)}
-.nav{display:flex;flex-wrap:wrap;gap:8px 18px;padding-top:18px;border-top:1px solid var(--line);font-size:15px}
-.nav a{color:var(--muted)}
-.nav a:hover{color:var(--accent)}
+.photo{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:8px;display:block;background:var(--chip);border:1px solid var(--line);box-shadow:var(--shadow)}
+.tagline{color:var(--muted);font-size:15px;margin:14px 0 12px}
+.status{display:inline-flex;align-items:center;gap:9px;background:var(--ok-bg);color:var(--ok-fg);font-size:14px;font-weight:600;line-height:1.3;padding:7px 12px;border-radius:999px;margin:0 0 20px}
+.status i{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.side-links{display:flex;flex-direction:column;gap:10px;font-size:15px;margin:0 0 22px;padding:0;list-style:none}
+.nav{display:flex;flex-direction:column;border-left:2px solid var(--line);font-size:15px}
+.nav a{color:var(--muted);padding:4px 0 4px 14px;margin-left:-2px;border-left:2px solid transparent;transition:color .15s,border-color .15s}
+.nav a:hover{color:var(--text);text-decoration:none}
+.nav a[aria-current="true"]{color:var(--accent);border-left-color:var(--accent);font-weight:600}
 
-/* Colonne droite */
-main h2{font-size:24px;margin:56px 0 16px;letter-spacing:-.01em;scroll-margin-top:24px}
-main h2:first-of-type{margin-top:0}
-.hero h2{font-size:38px;line-height:1.15;margin:0 0 20px;font-weight:700;letter-spacing:-.02em}
-.lead{font-size:19px;color:var(--text);max-width:62ch}
+/* ---------- Boutons ---------- */
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:10px 18px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);transition:filter .15s,background .15s}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:var(--accent-soft);filter:none}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+/* ---------- Sections ---------- */
+main section{scroll-margin-top:28px}
+main .sec{margin-top:68px}
+.sec h2{font-size:25px;margin:0 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+.hero h2{font-size:38px;line-height:1.15;margin:0 0 20px;font-weight:700;letter-spacing:-.02em}
+.lead{font-size:19px;max-width:62ch;margin:0}
 ul.plain{padding-left:22px;margin:0}
 ul.plain li{margin:8px 0}
 
-.projects{display:grid;gap:18px}
-.project{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:24px 26px;border-left:4px solid var(--accent)}
-.project h3{margin:0 0 6px;font-size:21px}
-.project p{margin:0 0 14px;color:var(--muted);font-size:16px}
-.project ul{margin:0 0 16px;padding-left:20px;font-size:16px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
-.chips li{background:var(--chip);border-radius:4px;padding:3px 10px;font-size:14px;color:var(--text)}
-.links{display:flex;gap:18px;font-size:15px;font-weight:600}
+/* Résultats chiffrés */
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:30px 0 0;padding:0;list-style:none}
+.proof li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 18px;display:flex;gap:14px;align-items:center}
+.proof strong{font-size:30px;line-height:1;color:var(--accent);font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.proof span{font-size:14px;color:var(--muted);line-height:1.4}
 
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+/* ---------- Projets ---------- */
+.projects{display:grid;gap:20px}
+.project{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:24px 26px;transition:box-shadow .2s,border-color .2s}
+.project:hover{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:no-preference){.project{transition:box-shadow .2s,transform .2s}.project:hover{transform:translateY(-2px)}}
+.p-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin-bottom:10px}
+.p-head h3{margin:0;font-size:21px;line-height:1.3}
+.p-head time{font-size:14px;color:var(--muted);white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;list-style:none}
+.badges li{font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.badges .ok{background:var(--ok-bg);color:var(--ok-fg)}
+.badges .wip{background:var(--wip-bg);color:var(--wip-fg)}
+.project p{margin:0 0 14px;color:var(--muted);font-size:16px}
+.project ul.points{margin:0 0 18px;padding-left:20px;font-size:16px}
+.project ul.points li{margin:5px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;list-style:none}
+.chips li{background:var(--chip);border-radius:4px;padding:3px 10px;font-size:14px}
+.links{display:flex;gap:18px;font-size:15px;font-weight:600}
+.links a{display:inline-flex;align-items:center;gap:8px}
+
+/* Chaîne « Follow me » */
+.flow{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px;padding:0;list-style:none;font-size:14px;font-weight:600}
+.flow li{position:relative;background:var(--accent-soft);color:var(--accent);padding:6px 14px 6px 12px;margin-right:14px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%)}
+.flow li:last-child{margin-right:0;clip-path:none;border-radius:4px;padding-right:12px}
+.flow small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+
+/* ---------- Savoir-faire ---------- */
+details.know{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin:0 0 12px}
+details.know summary{cursor:pointer;padding:14px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+details.know summary::-webkit-details-marker{display:none}
+details.know summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);font-weight:400}
+details.know[open] summary::after{content:"−"}
+details.know summary span{display:block;font-weight:400;color:var(--muted);font-size:15px}
+details.know ul{margin:0;padding:0 24px 16px 40px;font-size:16px}
+details.know li{margin:6px 0}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .skills div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
-.skills h3{margin:0 0 10px;font-size:16px;color:var(--accent)}
+.skills h3{margin:0 0 8px;font-size:16px;color:var(--accent)}
 
 .timeline{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line)}
-.timeline li{position:relative;margin:0 0 20px;padding-left:18px}
+.timeline li{position:relative;margin:0 0 22px;padding-left:18px}
 .timeline li::before{content:"";position:absolute;left:-26px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
 .timeline ul{margin-top:8px;font-size:16px}
 .timeline small{color:var(--muted);display:block;font-size:14px}
 
 footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%,100%{box-shadow:0 0 0 7px transparent}}
+@media (prefers-reduced-motion:no-preference){
+  .hero>*{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero>:nth-child(2){animation-delay:.08s}
+  .hero>:nth-child(3){animation-delay:.16s}
+  .hero>:nth-child(4){animation-delay:.24s}
+  .status i{animation:pulse 2.4s ease-out infinite}
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width:860px){
   .layout{grid-template-columns:1fr;gap:36px;padding-top:32px}
   aside{position:static;display:grid;grid-template-columns:140px 1fr;gap:6px 20px;align-items:start}
   aside h1{grid-column:1/-1;font-size:26px;margin-bottom:6px}
   .photo{grid-row:2/4}
   .tagline{margin:0}
-  .side-links,.nav{grid-column:1/-1}
+  .status{margin:0;align-self:start}
+  .side-links{grid-column:1/-1;margin:10px 0 0}
+  .nav{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:4px 18px;border-left:0;border-top:1px solid var(--line);padding-top:14px}
+  .nav a{border-left:0;margin-left:0;padding:2px 0;border-bottom:2px solid transparent}
+  .nav a[aria-current="true"]{border-bottom-color:var(--accent)}
   .hero h2{font-size:30px}
 }
 @media (max-width:480px){
   aside{grid-template-columns:1fr}
   .photo{max-width:220px;grid-row:auto}
+  .project{padding:20px 18px}
 }
 </style>
 </head>
@@ -93,15 +154,17 @@ footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--li
     <h1>ABO William Junior</h1>
     <img class="photo" src="assets/willi.jpeg" alt="Portrait d'ABO William Junior" width="300" height="300">
     <p class="tagline">Portfolio Développeur Fullstack &amp; Applications</p>
+    <p class="status"><i aria-hidden="true"></i>Recherche un stage de 3 à 4 mois</p>
     <ul class="side-links">
-      <li><a href="https://github.com/WILLIAM04052005">GitHub : WILLIAM04052005</a></li>
-      <li><a href="https://www.linkedin.com/in/abo-william-junior-b1a202326/">LinkedIn</a></li>
+      <li><a href="https://github.com/WILLIAM04052005" target="_blank" rel="noopener">GitHub : WILLIAM04052005</a></li>
+      <li><a href="https://www.linkedin.com/in/abo-william-junior-b1a202326/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="mailto:william-junior.abo@efrei.net">william-junior.abo@efrei.net</a></li>
     </ul>
     <nav class="nav" aria-label="Sections">
       <a href="#apropos">À propos</a>
       <a href="#projets">Projets</a>
       <a href="#experiences">Expériences</a>
+      <a href="#savoir-faire">Savoir-faire</a>
       <a href="#competences">Compétences</a>
       <a href="#parcours">Formation</a>
       <a href="#contact">Contact</a>
@@ -109,168 +172,239 @@ footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--li
   </aside>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="accueil">
       <h2>ABO William Junior – Étudiant-ingénieur Développeur Web Full Stack &amp; IA</h2>
-      <p class="lead">Bienvenue sur mon portfolio. Étudiant en 3<sup>e</sup> année à l'EFREI Paris, spécialisé en développement web et applications, et je recherche une alternance en tant que développeur Full Stack junior.</p>
-      <p class="lead"><strong>Ma formation en alternance a déjà commencé, et je ne lâche rien : je cherche l'entreprise qui me fera confiance et je m'engage à lui apporter toute mon énergie, ma rigueur et ma capacité d'apprentissage.</strong></p>
+      <p class="lead">Bienvenue sur mon portfolio. Étudiant en 3<sup>e</sup> année à l'EFREI Paris, spécialisé en développement web et applications, je recherche un stage de 3 à 4 mois en tant que développeur Full Stack junior.</p>
+      
       <div class="actions">
         <a class="btn" href="#projets">Voir mes projets</a>
-        <a class="btn ghost" href="https://github.com/WILLIAM04052005">Mon GitHub</a>
+        <a class="btn ghost" href="https://github.com/WILLIAM04052005" target="_blank" rel="noopener">Mon GitHub</a>
       </div>
     </section>
 
-    <h2 id="apropos">À propos de moi</h2>
-    <ul class="plain">
-      <li>Étudiant-ingénieur à l'<strong>EFREI Paris</strong>, spécialisé Développeur web Full Stack &amp; IA (RNCP 39608)</li>
-      <li>Stagiaire assistant ingénieur chez <strong>DK-Wave Technology France</strong> (été 2026) : React, MySQL, CI/CD</li>
-      <li>Demi-finaliste du <strong>Digital Health Hackathon</strong> (2023)</li>
-      <li>Travail en équipe en méthode Agile avec Git, GitHub, Jira et Slack</li>
-      <li>Trilingue : français, anglais (TOEIC B2), espagnol (A2)</li>
-    </ul>
-    <h2 id="competences">Mon savoir-faire</h2>
-    <ul class="plain">
-      <h3 style="margin-top: 1rem;"><strong>Frontend</strong>(HTML5, CSS, JavaScript, React)</h3>
-      <li>Comprendre les principes d’architecture des frameworks front-end modernes.</li>
-      <li>Structurer une application selon une approche modulaire. </li>
-      <li>Développer des composants réutilisables et Organiser efficacement le code afin d'éviter les redondances.</li>
-      <li>Produire un code lisible, maintenable et documenté.</li>
-      <li>Développer des interfaces réactives répondant aux interactions des utilisateurs.</li>
-      <li>Organiser les fonctionnalités d’une application à travers une architecture cohérente.</li>
+    <section class="sec" id="apropos">
+      <h2>À propos de moi</h2>
+      <ul class="plain">
+        <li>Étudiant-ingénieur à l'<strong>EFREI Paris</strong>, spécialisé Développeur web Full Stack &amp; IA (RNCP 39608)</li>
+        <li>Stagiaire assistant ingénieur chez <strong>DK-Wave Technology France</strong> (été 2026) : React, MySQL, CI/CD</li>
+        <li>Demi-finaliste du <strong>Digital Health Hackathon</strong> (2023)</li>
+        <li>Travail en équipe en méthode Agile avec Git, GitHub, Documentation</li>
+        <li>Trilingue : français, anglais (TOEIC B2), espagnol (A2)</li>
+      </ul>
+    </section>
 
-      <h3 style="margin-top: 1rem;"><strong>Backend</strong>(Laravel, Symfony, PHP, MySQL, PostgreSQL)</h3>
-      <li>Configurer un environnement de développement professionnel adapté à un projet back-end.</li>
-      <li>Développer des API RESTful et gérer les requêtes HTTP et Développer une application selon une architecture MVC.</li>
-      <li>Produire un code maintenable, documenté et évolutif, Déployer et sécuriser un environnement serveur.</li>
-      <li>Concevoir et administrer une base de données relationnelle, Concevoir une architecture de données NoSQL adaptée aux besoins du projet.</li>
-      <li>Optimiser les performances d’une application et de sa base de données.</li>
-      <li>Mettre en œuvre des mécanismes d’authentification et d’autorisation, Sécuriser les échanges entre applications et services.</li>
+    <section class="sec" id="projets">
+      <h2>Mes projets</h2>
+      <div class="projects">
 
-    </ul>
+        <article class="project">
+          <div class="p-head"><h3>Smart Campus</h3><time datetime="2026">2026</time></div>
+          <ul class="badges">
+            <li>Projet personnel</li><li class="ok">Terminé et déployé</li>
+          </ul>
+          <p>Plateforme web qui permet aux étudiants, enseignants et administrateurs de gérer la vie académique depuis une seule application.</p>
+          <ul class="points">
+            <li>Trois profils d'utilisateurs avec des besoins différents, réunis dans une même application.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>React</li><li>Node.js</li><li>Express</li><li>PostgreSQL (neon.tech)</li><li>Prisma</li><li>HTML5 &amp; CSS</li><li>Vercel</li><li>Render</li><li>GitHub</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/WILLIAM04052005/smart-campus" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
 
-    <h2 id="projets">Mes projets</h2>
-    <div class="projects">
+        <article class="project">
+          <div class="p-head"><h3>Snake Arena</h3><time datetime="2026">2026</time></div>
+          <ul class="badges">
+            <li>Projet personnel</li><li>Temps réel</li>
+          </ul>
+          <p>Jeu de Snake multijoueur en temps réel, jouable directement dans le navigateur. Un joueur crée un salon, partage son code ou son lien, et jusqu'à 8 joueurs s'affrontent sur la même carte : il faut manger pour grandir, sans percuter les murs, son propre corps ou les autres serpents.</p>
+          <ul class="points">
+            <li>Multijoueur en temps réel via WebSocket, avec des salons privés rejoignables par code ou par lien.</li>
+            <li>Serveur qui fait autorité : c'est lui qui calcule chaque tour de jeu (10 fois par seconde), ce qui empêche la triche.</li>
+            <li>Règles du jeu écrites en TypeScript pur et partagées entre le client et le serveur dans un monorepo.</li>
+            <li>Toutes les données envoyées par les joueurs sont validées, avec une limite de messages par seconde contre le spam.</li>
+            <li>Classement en direct, respawn après une défaite, contrôles au clavier (flèches, ZQSD) et au doigt sur mobile.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>TypeScript</li><li>React</li><li>Vite</li><li>Node.js</li><li>Fastify</li><li>Socket.io</li><li>Canvas HTML5</li><li>Vitest</li><li>GitHub Actions</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/WILLIAM04052005/snake-arena" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
 
-      <article class="project">
-        <h3>Smart Campus</h3>
-        <p>Plateforme web qui permet aux étudiants, enseignants et administrateurs de gérer la vie académique depuis une seule application.</p>
+        <article class="project">
+          <div class="p-head"><h3>Data City – Movecity</h3><time datetime="2026">2026</time></div>
+          <ul class="badges">
+            <li>Projet d'équipe</li><li class="wip">En cours, soutenance en décembre 2026</li>
+          </ul>
+          <p>Plateforme d'analyse et de visualisation de données urbaines dans une ville choisie, pour fluidifier les mobilités quotidiennes.</p>
+          <ul class="points">
+            <li>Plateforme citoyenne interactive destinée aux habitants d'une ville imaginaire (ou inspirée d'un territoire réel).</li>
+            <li>Projet pluridisciplinaire (DevOps, cybersécurité, marketing digital) dont je suis le responsable DevOps.</li>
+            <li>Cadrage du périmètre technique à partir des personas visés.</li>
+            <li>Définition de l'architecture technique, des choix de données et des premiers wireframes ; finalisation du prototype squelette et de la documentation d'architecture.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>HTML5 &amp; CSS</li><li>React JavaScript</li><li>Node.js / Express</li><li>PostgreSQL</li><li>GitHub</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/WILLIAM04052005/movecity-app" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="p-head"><h3>TaskFlow – Projet de groupe</h3><time datetime="2026">2026</time></div>
+          <ul class="badges">
+            <li>Projet de groupe (B3DEV – Groupe 1)</li><li class="ok">Terminé</li>
+          </ul>
+          <p>Application de gestion de tâches et de suivi de projet, réalisée en groupe.</p>
+          <ul class="points">
+            <li>Travail collaboratif avec Git, GitHub et une organisation Agile.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>HTML5 &amp; CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li><li>Git / GitHub</li><li>VS Code</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/Patebolognaise/B3DEV_Groupe1_TaskFlow" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="p-head"><h3>Drone quadricoptère autonome</h3><time datetime="2023/2024">2023 – 2024</time></div>
+          <ul class="badges">
+            <li>Projet académique UCAC-ICAM</li><li>Équipe de 7</li><li>Responsable du domaine Électronique</li>
+          </ul>
+          <p>Conception d'un quadricoptère autonome, de l'électronique embarquée jusqu'au pilotage par application mobile. J'étais responsable du domaine Électronique, en tant qu'assistant Informatique.</p>
+          <ol class="flow" aria-label="Système Follow me">
+            <li>Application mobile</li>
+            <li>API HTTP</li>
+            <li>Script Python<small>DroneKit / MAVLink</small></li>
+            <li>Drone<small>Pixhawk</small></li>
+          </ol>
+          <ul class="points">
+            <li>Intégration et calibration de l'électronique embarquée : Pixhawk, capteurs, ESC, radio, caméra 4K.</li>
+            <li>Contribution à un système « Follow me » : application mobile, API HTTP et script Python (DroneKit / MAVLink) qui pilote le drone.</li>
+            <li>Validation en simulation (SITL) avant les tests réels, et mesure de la performance : autonomie réelle comparée à la théorie.</li>
+            <li>Documentation et publication du projet sur GitHub.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>Python</li><li>DroneKit</li><li>MAVLink</li><li>Pixhawk</li><li>SITL</li><li>API REST / HTTP</li><li>Architecture client-serveur</li><li>Développement mobile</li><li>Git / GitHub</li><li>Markdown</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/WILLIAM04052005/PROJET-DRONE-Quadricopt-re" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="sec" id="experiences">
+      <h2>Expériences</h2>
+      <ol class="timeline">
+        <li><strong>Stagiaire assistant ingénieur – DK-Wave Technology France</strong><small>Juin – août 2026</small>
+          <ul class="plain">
+            <li>Composant React de visualisation des plannings étudiants pour la solution smart attendance : temps de consultation réduit de 40 %, en remplacement d'un processus manuel sous Excel.</li>
+            <li>Jobs d'analyse statique de code dans la chaîne CI/CD, pour détecter les bugs avant la production.</li>
+            <li>Optimisation d'une base MySQL (requêtes, migrations, modélisation) : temps de réponse réduit de 50 %.</li>
+          </ul>
+        </li>
+        <li><strong>Stagiaire assistant ingénieur technicien – Burotop Iris</strong><small>Janvier – février 2025</small>
+          <ul class="plain">
+            <li>Maintenance et déploiement d'infrastructures IT chez plusieurs clients : réseau (Cisco, TP-Link, VLAN), vidéosurveillance et capteurs.</li>
+            <li>6 interventions sur site et à distance sous Windows Server et Linux (Ubuntu).</li>
+          </ul>
+        </li>
+        <li><strong>Digital Health Hackathon – demi-finaliste</strong><small>Juin – septembre 2023</small>
+          <ul class="plain">
+            <li>Solution numérique pour la gestion des données médicales et la communication patients / professionnels de santé : spécifications, architecture et maquettes.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="sec" id="savoir-faire">
+      <h2>Mon savoir-faire</h2>
+      <details class="know">
+        <summary><div>Frontend<span>HTML5, CSS, JavaScript, React</span></div></summary>
         <ul>
-          <li>Trois profils d'utilisateurs avec des besoins différents, réunis dans une même application.</li>
-          <li>Projet personnel terminé et déployé(2026).</li>
+          <li>Comprendre les principes d'architecture des frameworks front-end modernes.</li>
+          <li>Structurer une application selon une approche modulaire.</li>
+          <li>Développer des composants réutilisables et organiser le code pour éviter les redondances.</li>
+          <li>Produire un code lisible, maintenable et documenté.</li>
+          <li>Développer des interfaces réactives répondant aux interactions des utilisateurs.</li>
+          <li>Organiser les fonctionnalités d'une application à travers une architecture cohérente.</li>
         </ul>
-        <ul class="chips" aria-label="Technologies">
-          <li>Node.js/ React / Express</li><li>PostgreSQL (neon.tech)</li><li>HTML5 &amp; CSS</li><li>Prisma</li><li>GitHub</li><li>Vercel</li><li>Render</li>
-        </ul>
-        <div class="links">
-          <a href="https://github.com/WILLIAM04052005/smart-campus">Code source - GitHub</a>
-        </div>
-      </article>
-
-      <article class="project">
-      <h3>Snake Arena</h3>
-      <p>Jeu de Snake multijoueur en temps réel, jouable directement dans le navigateur. Un joueur crée un salon, partage son code ou son lien, et jusqu'à 8 joueurs s'affrontent sur la même carte : il faut manger pour grandir, sans percuter les murs, son propre corps ou les autres serpents.</p>
-  <ul>
-    <li>Multijoueur en temps réel via WebSocket, avec des salons privés rejoignables par code ou par lien.</li>
-    <li>Serveur qui fait autorité : c'est lui qui calcule chaque tour de jeu (10 fois par seconde), ce qui empêche la triche.</li>
-    <li>Règles du jeu écrites en TypeScript pur et partagées entre le client et le serveur dans un monorepo.</li>
-    <li>Toutes les données envoyées par les joueurs sont validées, avec une limite de messages par seconde contre le spam.</li>
-    <li>Classement en direct, respawn après une défaite, contrôles au clavier (flèches, ZQSD) et au doigt sur mobile.</li>
-    <li>Projet personnel (2026).</li>
-  </ul>
-  <ul class="chips" aria-label="Technologies">
-    <li>TypeScript</li><li>React</li><li>Vite</li><li>Node.js</li><li>Fastify</li><li>Socket.io</li><li>Canvas HTML5</li><li>Vitest</li><li>GitHub Actions</li>
-  </ul>
-  <div class="links">
-    <a href="https://github.com/WILLIAM04052005/snake-arena">Code source - GitHub</a>
-  </div>
-</article>
-
-      <article class="project">
-        <h3>Data City - Movecity</h3>
-        <p>Plateforme d'analyse et de visualisation de données urbaines dans une ville choisie. Une ville qui fluidifie les mobilités quotidiennes.</p>
+      </details>
+      <details class="know">
+        <summary><div>Backend<span>Laravel, Symfony, PHP, MySQL, PostgreSQL</span></div></summary>
         <ul>
-          <li>Concevoir une plateforme citoyenne
-interactive destinée aux habitants d'une ville imaginaire (ou inspirée d'un territoire réel).</li>
-          <li>Ce projet visant plusieures domaines; Devops, cybersécurité, marketing digital, etant responsable du devops.</li>
-          <li>Je contribue au cadrage du périmètre technique à partir des personas visés.</li>
-          <li>Pose l'architecture technique, les choix de données et les premiers wireframes et Finalise le prototype squelette et la documentation d'architecture.</li>
-          <li>En cours de réalisation jusqu'en Decembre 2026 pour la soutenance.</li>
+          <li>Configurer un environnement de développement professionnel adapté à un projet back-end.</li>
+          <li>Développer des API RESTful et gérer les requêtes HTTP.</li>
+          <li>Développer une application selon une architecture MVC.</li>
+          <li>Produire un code maintenable, documenté et évolutif.</li>
+          <li>Déployer et sécuriser un environnement serveur.</li>
+          <li>Concevoir et administrer une base de données relationnelle, et concevoir une architecture de données NoSQL adaptée aux besoins du projet.</li>
+          <li>Optimiser les performances d'une application et de sa base de données.</li>
+          <li>Mettre en œuvre des mécanismes d'authentification et d'autorisation.</li>
+          <li>Sécuriser les échanges entre applications et services.</li>
         </ul>
-        <ul class="chips" aria-label="Technologies">
-          <li>HTML5 &amp; CSS</li><li>Vanilla JavaScript</li><li>Node.js / Express</li><li>PostgreSQL</li><li>GitHub</li>
-        </ul>
-        <div class="links">
-          <a href="https://github.com/WILLIAM04052005/movecity-app">Code source - GitHub</a>
-        </div>
-      </article>
+      </details>
+    </section>
 
-      <article class="project">
-        <h3>TaskFlow - Group project</h3>
-        <p>Application de gestion de tâches et de suivi de projet, réalisée en groupe (B3DEV – Groupe 1).</p>
-        <ul>
-          <li>Travail collaboratif avec Git, GitHub et une organisation Agile.</li>
-          <li>Projet de 2026(Terminé).</li>
-        </ul>
-        <ul class="chips" aria-label="Technologies">
-          <li>Git / GitHub</li><li>HTML5 &amp; CSS</li><li>JavaScript</li><li>MySQL, PHP</li><li>VS Code</li>
-        </ul>
-        <div class="links">
-          <a href="https://github.com/Patebolognaise/B3DEV_Groupe1_TaskFlow">Code source - GitHub</a>
-        </div>
-      </article>
+    <section class="sec" id="competences">
+      <h2>Compétences</h2>
+      <div class="skills">
+        <div><h3>Front-end</h3>HTML5, CSS, React</div>
+        <div><h3>Back-end</h3>Node.js / Express, PHP, MongoDB</div>
+        <div><h3>Bases de données</h3>PostgreSQL (neon.tech), MySQL</div>
+        <div><h3>Data &amp; IA</h3>Python, Pandas, Matplotlib, Scikit-Learn, Jupyter, Anaconda</div>
+        <div><h3>Embarqué &amp; simulation</h3>Pixhawk, DroneKit, MAVLink</div>
+        <div><h3>Outils</h3>Git, GitHub, VS Code, Docker, Looping, Graphql </div>
+        <div><h3>Gestion de projet</h3>Méthode Agile, Documentation(Swagger), animateur de groupe de travail</div>
+      </div>
+    </section>
 
-    </div>
+    <section class="sec" id="parcours">
+      <h2>Formation</h2>
+      <ol class="timeline">
+        <li><strong>Ingénieur Informatique – EFREI Paris</strong><small>2026 – en cours · Développeur web Full Stack &amp; IA</small></li>
+        <li><strong>Ingénieur Généraliste – ICAM Nantes</strong><small>2023 – 2025 · Informatique et systèmes embarqués. Projets : drone quadricoptère autopilote, bateau autopilote</small></li>
+        <li><strong>Baccalauréat scientifique anglophone et technique (A Level)</strong><small>2022 – 2023 · Douala, Cameroun</small></li>
+      </ol>
+    </section>
 
-    <h2 id="experiences">Expériences</h2>
-    <ol class="timeline">
-      <li><strong>Stagiaire assistant ingénieur – DK-Wave Technology France</strong><small>Juin – août 2026</small>
-        <ul class="plain">
-          <li>Composant React de visualisation des plannings étudiants pour la solution smart attendance : temps de consultation réduit de 40 %, en remplacement d'un processus manuel sous Excel.</li>
-          <li>Jobs d'analyse statique de code dans la chaîne CI/CD, pour détecter les bugs avant la production.</li>
-          <li>Optimisation d'une base MySQL (requêtes, migrations, modélisation) : temps de réponse réduit de 50 %.</li>
-          <li>Méthode Agile avec Jira et Slack.</li>
-        </ul>
-      </li>
-      <li><strong>Stagiaire assistant ingénieur technicien – Burotop Iris</strong><small>Janvier – février 2025</small>
-        <ul class="plain">
-          <li>Maintenance et déploiement d'infrastructures IT chez plusieurs clients : réseau (Cisco, TP-Link, VLAN), vidéosurveillance et capteurs.</li>
-          <li>6 interventions sur site et à distance sous Windows Server et Linux (Ubuntu).</li>
-        </ul>
-      </li>
-      <li><strong>Digital Health Hackathon – demi-finaliste</strong><small>Juin – septembre 2023</small>
-        <ul class="plain">
-          <li>Solution numérique pour la gestion des données médicales et la communication patients / professionnels de santé : spécifications, architecture et maquettes.</li>
-        </ul>
-      </li>
-    </ol>
-
-    <h2 id="competences">Compétences</h2>
-    <div class="skills">
-      <div><h3>Front-end</h3>HTML5, CSS, React</div>
-      <div><h3>Back-end</h3>Node.js / Express, PHP, Python</div>
-      <div><h3>Bases de données</h3>PostgreSQL (neon.tech), MySQL</div>
-      <div><h3>Data &amp; IA</h3>Pandas, Matplotlib, Scikit-Learn, Jupyter, Anaconda</div>
-      <div><h3>Outils</h3>Git, GitHub, VS Code, Jira, looping, XAMPP</div>
-      <div><h3>Gestion de projet</h3>Méthode Agile, planification, animation de groupe de travail</div>
-    </div>
-
-    <h2 id="parcours">Formation</h2>
-    <ol class="timeline">
-      <li><strong>Ingénieur Informatique – EFREI Paris</strong><small>2026 – en cours · Développeur web Full Stack &amp; IA</small></li>
-      <li><strong>Ingénieur Généraliste – ICAM Nantes</strong><small>2023 – 2025 · Informatique et systèmes embarqués. Projets : drone quadricoptère autopilote, bateau autopilote</small></li>
-      <li><strong>Baccalauréat scientifique anglophone et technique (A Level)</strong><small>2022 – 2023 · Douala, Cameroun</small></li>
-    </ol>
-
-    <h2 id="contact">Me contacter</h2>
-    <p>Un stage alterné, une alternance ou un projet à construire ensemble ? Écrivez-moi.</p>
-    <div class="actions">
-      <a class="btn" href="mailto:william-junior.abo@efrei.net">Envoyer un e-mail</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/abo-william-junior-b1a202326/?isSelfProfile=true">LinkedIn</a>
-    </div>
+    <section class="sec" id="contact">
+      <h2>Me contacter</h2>
+      <p>Un stage alterné, un stage en plein temps ou un projet à construire ensemble ? Écrivez-moi.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:abowilliam30@gmail.com">Envoyer un e-mail</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/abo-william-junior-b1a202326/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
   </main>
 </div>
 
 <footer>
   © 2026 ABO William Junior · Portfolio hébergé sur GitHub Pages
 </footer>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var links={};
+  [].slice.call(document.querySelectorAll('.nav a')).forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      for(var k in links){links[k].removeAttribute('aria-current')}
+      if(links[e.target.id])links[e.target.id].setAttribute('aria-current','true');
+    });
+  },{rootMargin:'-25% 0px -65% 0px'});
+  [].slice.call(document.querySelectorAll('main section[id]')).forEach(function(s){io.observe(s)});
+})();
+</script>
 </body>
 </html>

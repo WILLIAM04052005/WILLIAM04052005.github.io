@@ -198,6 +198,29 @@ footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--li
       <div class="projects">
 
         <article class="project">
+          <div class="p-head"><h3>AllergyLab – Agent IA sur données de santé</h3><time datetime="2026-11">2026</time></div>
+          <ul class="badges">
+            <li>Projet d'équipe (EFREI · Open Data University)</li><li class="ok">Terminé, déployé et publié sur data.gouv.fr</li>
+          </ul>
+          <p>Agent conversationnel qui répond en français aux questions sur un vrai jeu de données de la Société Française d'Allergologie (4 271 patients, données cliniques et dosages d'IgE), et qui sait dire « je ne peux pas conclure » quand les données ne permettent pas de répondre.</p>
+          <ul class="points">
+            <li>Agent LLM qui choisit ses outils, calcule et rend une réponse justifiée (statut, valeur, justification avec le dénominateur), ou s'abstient face à une question de causalité ou une information absente.</li>
+            <li>5 outils Python testés qui traitent les pièges des données : valeurs « non renseigné », cellules à plusieurs codes, puces qui ne mesurent pas les mêmes allergènes.</li>
+            <li>Sécurité par le moindre privilège : l'agent n'accède jamais au tableau, seuls des résultats agrégés sont envoyés au modèle.</li>
+            <li>Frugalité mesurée à chaque version : temps de réponse divisé par 5 (17 s à 3 s) et coût divisé par 3,5, avec 100 % de réponses justes et d'abstentions fondées sur notre batterie de 21 questions de test et 80 % de réussite au banc de tests de notre expert.</li>
+            <li>Mise en production : conteneur Docker déployé sur Render, clé d'API gardée en secret, nombre de questions plafonné.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies">
+            <li>Python</li><li>smolagents</li><li>LLM (Claude)</li><li>pandas</li><li>pytest</li><li>Docker</li><li>Render</li><li>Git · GitHub</li>
+          </ul>
+          <div class="links">
+            <a href="https://allergylab-agent.onrender.com" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-1 4.2L11 8l-4 2.8V5.2z"/></svg>Essayer l'agent en ligne</a>
+            <a href="https://www.data.gouv.fr/reuses/agent-ia-qui-repond-aux-questions-sur-les-donnees-dallergologie-de-la-sfa" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 1L1 4.5V6h14V4.5L8 1zM2.5 7v5h2V7h-2zm4.5 0v5h2V7H7zm4.5 0v5h2V7h-2zM1 13v2h14v-2H1z"/></svg>Publié sur data.gouv.fr</a>
+            <a href="https://github.com/WILLIAM04052005/allergylab-agent" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code source sur GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
           <div class="p-head"><h3>Smart Campus</h3><time datetime="2026">2026</time></div>
           <ul class="badges">
             <li>Projet personnel</li><li class="ok">Terminé et déployé</li>
@@ -381,7 +404,7 @@ footer{max-width:1120px;margin:0 auto;padding:24px;border-top:1px solid var(--li
         <div><h3>Front-end</h3>HTML5, CSS, React</div>
         <div><h3>Back-end</h3>Node.js / Express, PHP, MongoDB</div>
         <div><h3>Bases de données</h3>PostgreSQL (neon.tech), MySQL</div>
-        <div><h3>Data &amp; IA</h3>Python, Pandas, Matplotlib, Scikit-Learn, Jupyter, Anaconda</div>
+        <div><h3>Data &amp; IA</h3>Python, Pandas, Matplotlib, Scikit-Learn, Jupyter, Anaconda, Smolagents, LLM</div>
         <div><h3>Embarqué &amp; simulation</h3>Pixhawk, DroneKit, MAVLink</div>
         <div><h3>Outils</h3>Git, GitHub, VS Code, Docker, Looping, Graphql </div>
         <div><h3>Gestion de projet</h3>Méthode Agile, Documentation(Swagger), animateur de groupe de travail</div>
